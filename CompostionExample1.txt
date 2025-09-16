@@ -1,0 +1,38 @@
+// Engine class
+class Engine {
+    private String type;
+
+    public Engine(String type) {
+        this.type = type;
+    }
+
+    public void start() {
+        System.out.println(type + " engine is starting...");
+    }
+}
+
+// Car class (uses composition: Car HAS an Engine)
+class Car {
+    private Engine engine; // Car has an Engine
+    private String model;
+
+    public Car(String model, Engine engine) {
+        this.model = model;
+        this.engine = engine;
+    }
+
+    public void startCar() {
+        System.out.println(model + " is ready to start.");
+        engine.start(); // Delegating to the Engine object
+    }
+}
+
+// Main class to test
+public class CompositionExample {
+    public static void main(String[] args) {
+        Engine v8 = new Engine("V8");
+        Car mustang = new Car("Ford Mustang", v8);
+
+        mustang.startCar();
+    }
+}

@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Book class
+class Book {
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    public void showInfo() {
+        System.out.println("\"" + title + "\" by " + author);
+    }
+}
+
+// Library class (uses composition: Library HAS Books)
+class Library {
+    private List<Book> books; // Library has a collection of Books
+
+    public Library() {
+        books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void showLibrary() {
+        System.out.println("Library contains:");
+        for (Book b : books) {
+            b.showInfo();
+        }
+    }
+}
+
+// Main class
+public class CompositionExample2 {
+    public static void main(String[] args) {
+        Library library = new Library();
+
+        Book book1 = new Book("1984", "George Orwell");
+        Book book2 = new Book("The Hobbit", "J.R.R. Tolkien");
+
+        library.addBook(book1);
+        library.addBook(book2);
+
+        library.showLibrary();
+    }
+}
