@@ -1,0 +1,22 @@
+class Counter {
+    // static variable
+    static int count = 0;
+
+    // constructor increments count
+    Counter() {
+        count++;
+        System.out.println("Object created. Count = " + count);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects
+        Counter c1 = new Counter();
+        Counter c2 = new Counter();
+        Counter c3 = new Counter();
+
+        // Access static variable without object
+        System.out.println("Final count = " + Counter.count);
+    }
+}
